@@ -1,0 +1,30 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}
+PC-Store| Editar Perfil {{user.username}}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-4">
+        <h1 class="text-center mt-4">Perfil de {{user.username}}</h1>
+        <p class="text-center">A continuación puedes modificar los datos necesarios:</p>
+
+        <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {{ perfil_form.as_p }}
+        <div class="d-flex justify-content-around">
+        <button type="submit" class="btn btn-primary">Editar</button>
+        <a class="btn btn-warning" href="{% url 'inicio' %}">Volver</a>
+        </div>
+        </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'myapp/base.html' %}
+
+{% load static %}
+
+{% block title %}
+PC-Store | Equipo de Trabajo
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Nuestro Equipo</h1>
+    <p class="text-center">Te presentamos nuestro equipo de trabajo</p>
+
+    <h2 class="text-center">Buscar colaborador por nombre o email</h2>
+    <!-- Formulario de búsqueda -->
+    <div class="d-flex flex-column align-items-center mb-2">
+      <form action="" method="GET">
+        <input type="text" name="q" placeholder="Buscar..." >
+        <button type="submit">Buscar</button>
+      </form>
+    </div>
+
+    <div class="container">
+
+        <table class="table">
+            <thead>
+              <tr class="table-danger">
+                <th scope="col">Nombre</th>
+                <th scope="col">apellido</th>
+                <th scope="col">email</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for colaborador in colaboradores %}
+              <tr class="table-success">
+                <td>{{colaborador.nombre}}</td>
+                <td>{{colaborador.apellido}}</td>
+                <td>{{colaborador.email}}</td>
+
+                <td>
+                    <a class="btn btn-danger" href="{% url 'colaborador-eliminar' colaborador.id %}">Eliminar</a>
+                    <a class="btn btn-warning" href="{% url 'colaborador-editar' colaborador.id %}">Editar</a>
+                    <a class="btn btn-info" href="{% url 'colaborador-detalle' colaborador.id %}">Ver Información</a>
+                </td>
+                {% endfor %}
+              </tr>
+
+            </tbody>
+          </table>
+        {% if user.is_superuser %}
+            <div class="d-flex justify-content-end" style="margin-bottom: 20px;">
+              <a class="btn btn-success" href="{% url 'colaborador-formulario' %}">Agregar Nuevo Colaborador</a>
+            </div>
+        {% else %}
+        {% endif %}
+    </div>
+    
+
+{% endblock  %}

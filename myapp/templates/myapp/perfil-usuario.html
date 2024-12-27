@@ -1,0 +1,27 @@
+{% extends 'myapp/base.html' %}
+
+{% load static %}
+
+{% block title %}
+Tercera entrega | Perfil {{user.username}}
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center mt-4">Perfil de {{user.username}}</h1>
+    <h4 class="text-center">Datos de usuario:</h4>
+
+    <div class="container">
+        <p class="text-center mt-4">Nombre: {{user.first_name | default:"Usuario sin Nombre Asignado"}}</p>
+        <p class="text-center mt-4">Apellido: {{user.last_name | default:"Usuario sin Apellido Asignado"}}</p>
+        <p class="text-center mt-4">Correo Electronico: {{user.email | default:"Usuario sin Email Asignado"}}</p>
+        <div style="display: flex; justify-content: center; align-items: center; margin-top: 16px;">
+            <img
+                src="{{user.perfil_usuario.photo.url}}"
+                alt="Foto de perfil"
+                style="max-width: 300px; max-height: 300px; width: auto; height: auto; border-radius: 50%; object-fit: cover;"
+            >
+        </div>
+    </div>
+
+
+{% endblock  %}

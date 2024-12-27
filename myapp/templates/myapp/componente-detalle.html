@@ -1,0 +1,30 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}
+PC-Store | Detalles del Componente
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <h1 class="text-center mb-4">Detalles del Componente</h1>
+            <div class="card">
+                <div class="card-header text-center">
+                    <h2 class="card-title mb-0">{{ componente.nombre }}</h2>
+                </div>
+                <div class="card-body">
+                    <p><strong>Cantidad:</strong> {{ componente.cantidad }}</p>
+                    <p><strong>Detalle:</strong> {{ componente.descripcion }}</p>
+                    <p><strong>Precio:</strong> ₡{{ componente.precio }}</p>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'componentes' %}" class="btn btn-primary">Volver a la Tienda</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

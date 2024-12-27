@@ -1,0 +1,65 @@
+{% extends 'myapp/base.html' %}
+
+{% load static %}
+
+{% block title %}
+PC-Store | Sedes
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Nuestras Sedes</h1>
+    <p class="text-center">Te esperamos</p>
+
+    <h2 class="text-center">Buscar por nombre o dirección</h2>
+    <!-- Formulario de búsqueda -->
+    <div class="d-flex flex-column align-items-center mb-2">
+      <form action="" method="GET">
+        <input type="text" name="q" placeholder="Buscar..." >
+        <button type="submit">Buscar</button>
+      </form>
+    </div>
+
+    <div class="container">
+
+        <table class="table">
+            <thead>
+              <tr class="table-danger">
+                <th scope="col">Sede Nombre</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for sede in sedes %}
+              <tr class="table-success">
+                <td>{{sede.nombre}}</td>
+                <td>{{sede.direccion}}</td>
+                <td>{{sede.nro_tel}}</td>
+                {% if user.is_superuser %}
+                <td>
+                    <a class="btn btn-danger" href="{% url 'sede-eliminar' sede.id %}">Eliminar</a>
+                    <a class="btn btn-warning" href="{% url 'sede-editar' sede.id %}">Editar</a>
+                    <a class="btn btn-info" href="{% url 'sede-detalle' sede.id %}">Ver Información</a>
+                </td>
+                {% else %}
+                <td>
+                    <a class="btn btn-info" href="{% url 'sede-detalle' sede.id %}">Ver Información</a>
+                </td>
+                {% endif %}
+
+                {% endfor %}
+              </tr>
+    
+            </tbody>
+          </table>
+        {% if user.is_superuser %}
+            <div class="d-flex justify-content-end" style="margin-bottom: 20px;">
+              <a class="btn btn-success" href="{% url 'sede-formulario' %}">Agregar Nueva Sede</a>
+            </div>
+        {% else %}
+        {% endif %}
+    </div>
+    
+
+{% endblock  %}

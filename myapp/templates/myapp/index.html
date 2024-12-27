@@ -1,0 +1,57 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block title %}
+PC-Store | Inicio
+{% endblock %}
+
+{% block content %}
+<!-- Content section 1-->
+<section id="scroll">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'myapp/assets/img/imagen1.jpg' %}" alt="..." /></div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                    <h2 class="display-4">Los mejores componetes del para tu computadora.</h2>
+                    <p>Tu computadora con las ultimas tecnologias del mercado.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Content section 2-->
+<section>
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'myapp/assets/img/imagen2.jpg' %}" alt="..." /></div>
+            </div>
+            <div class="col-lg-6">
+                <div class="p-5">
+                    <h2 class="display-4">Con el mejor staff de trabajo</h2>
+                    <p>Todos nuestros colaboradores son especialistas en tecnologia, te brindamos la acesoria y apoyo para el armado de tu PC.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Content section 3-->
+<section>
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'myapp/assets/img/imagen3.jpg' %}" alt="..." /></div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                    <h2 class="display-4">Estamos ubicados en todo el país.</h2>
+                    <p>Te esperamos en cualquiera de nuestras sedes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

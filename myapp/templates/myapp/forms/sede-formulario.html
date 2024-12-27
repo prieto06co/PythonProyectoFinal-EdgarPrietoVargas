@@ -1,0 +1,27 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}
+PC-Store| Creación de Sede
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-4">
+        <h1 class="text-center">Creación de Nueva Sede</h1>
+        <p class="text-center">Por favor llenar la siguiente información de la sede:</p>
+
+        <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+          
+        <button type="submit" class="btn btn-primary">Crear Componente</button>
+        </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

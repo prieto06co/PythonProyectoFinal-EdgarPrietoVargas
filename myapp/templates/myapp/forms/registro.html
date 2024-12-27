@@ -1,0 +1,29 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}
+PC-Store| Registro de usuario
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-4">
+        <h1 class="text-center mt-4">Registro de nuevo usuario</h1>
+        <p class="text-center">Por favor completa el siguiente formulario de registro:</p>
+
+        <form action="" method="POST">
+        {% csrf_token %}
+          {{form}}
+        <div class="d-flex justify-content-around">
+          <button type="submit" class="btn btn-primary">Registrase</button>
+          <a class="btn btn-warning" href="{% url 'inicio' %}">Volver</a>
+        </div>
+        </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

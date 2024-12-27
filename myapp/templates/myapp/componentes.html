@@ -1,0 +1,65 @@
+{% extends 'myapp/base.html' %}
+
+{% load static %}
+
+{% block title %}
+PC-Store | Componentes
+{% endblock %}
+
+{% block content %}
+    {% include 'myapp/include/promocion-componente.html' %}
+    <h1 class="text-center">Nuestros Productos</h1>
+    <p class="text-center">El stock más completo del mercado</p>
+
+    <h2 class="text-center">Buscar componente por nombre</h2>
+    <!-- Formulario de búsqueda -->
+    <div class="d-flex flex-column align-items-center mb-2">
+      <form action="" method="GET">
+        <input type="text" name="q" placeholder="Buscar..." >
+        <button type="submit">Buscar</button>
+      </form>
+    </div>
+
+    <div class="container">
+
+        <table class="table">
+            <thead>
+              <tr class="table-danger">
+                <th scope="col">Nombre</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for componente in componentes %}
+              <tr class="table-success">
+                <td>{{componente.nombre}}</td>
+                <td>{{componente.cantidad}}</td>
+
+                {% if user.is_superuser %}
+                <td>
+                    <a class="btn btn-danger" href="{% url 'componente-eliminar' componente.id %}">Eliminar</a>
+                    <a class="btn btn-warning" href="{% url 'componente-editar' componente.id %}">Editar</a>
+                    <a class="btn btn-info" href="{% url 'componente-detalle' componente.id %}">Ver Información</a>
+                </td>
+                {% else %}
+                <td>
+                    <a class="btn btn-info" href="{% url 'componente-detalle' componente.id %}">Ver Información</a>
+                </td>
+                {% endif %}
+
+                {% endfor %}
+              </tr>
+
+            </tbody>
+          </table>
+        {% if user.is_superuser %}
+            <div class="d-flex justify-content-end" style="margin-bottom: 20px;">
+              <a class="btn btn-success" href="{% url 'componente-formulario' %}">Agregar Nuevo Componente</a>
+            </div>
+        {% else %}
+        {% endif %}
+    </div>
+
+
+{% endblock  %}

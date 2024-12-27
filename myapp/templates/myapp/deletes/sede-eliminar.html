@@ -1,0 +1,27 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}
+PC-Store| Sede Eliminar
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-4">
+            
+
+        <form action="" method="POST">
+        {% csrf_token %}
+        <p>¿Estás seguro de la eliminación de la sede seleccionada?</p>
+        <button type="submit" class="btn btn-primary">Eliminar Sede</button>
+        <a href="{% url 'sedes' %}" class="btn btn-primary ms-2">Volver a Sedes</a>
+
+        </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

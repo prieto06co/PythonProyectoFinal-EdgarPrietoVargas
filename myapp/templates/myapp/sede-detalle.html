@@ -1,0 +1,30 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}
+PC-Store | Detalle Sede
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <h1 class="text-center mb-4">Detalles de la Sede</h1>
+            <div class="card">
+                <div class="card-header text-center">
+                    <h2 class="card-title mb-0">{{ sede.nombre }}</h2>
+                </div>
+                <div class="card-body">
+                    <p><strong>Nombre:</strong> {{ sede.nombre }}</p>
+                    <p><strong>Direccion:</strong> {{ sede.direccion }}</p>
+                    <p><strong>Nro_tel:</strong> {{ sede.nro_tel }}</p>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'sedes' %}" class="btn btn-primary">Volver a la Tienda</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

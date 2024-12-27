@@ -1,0 +1,42 @@
+{% extends 'myapp/base.html' %}
+
+{% load static %}
+
+{% block title %}
+PC-Store | Acerca de Nosotros
+{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <h1 class="text-center mb-4">Acerca de Nosotros</h1>
+            <p class="text-justify">
+                Bienvenido a <strong>PC-Store</strong>, tu tienda de confianza para componentes de computadoras gamer. Somos una pequeña empresa apasionada por la tecnología y los videojuegos. Nos dedicamos a ofrecer a nuestros clientes los mejores productos del mercado para construir y optimizar sus setups gamer, desde tarjetas gráficas de última generación hasta accesorios especializados.
+            </p>
+            <p class="text-justify">
+                En <strong>PC-Store</strong>, entendemos la importancia de contar con un equipo de alto rendimiento para disfrutar de una experiencia gaming inolvidable. Nuestro objetivo es proporcionar productos de calidad, asesoramiento personalizado y un servicio al cliente excepcional.
+            </p>
+            <hr>
+            <h3 class="text-center mt-4">Nuestros Valores</h3>
+            <ul class="list-group list-group-flush my-3">
+                <li class="list-group-item">
+                    <strong>Calidad:</strong> Solo trabajamos con marcas reconocidas y productos que cumplen con los más altos estándares.
+                </li>
+                <li class="list-group-item">
+                    <strong>Pasión:</strong> Somos gamers como tú, y entendemos tus necesidades.
+                </li>
+                <li class="list-group-item">
+                    <strong>Innovación:</strong> Siempre estamos al día con las últimas tendencias tecnológicas.
+                </li>
+                <li class="list-group-item">
+                    <strong>Servicio:</strong> Nuestro equipo está aquí para ayudarte en cada paso del camino.
+                </li>
+            </ul>
+            <div class="text-center mt-4">
+                <a href="{% url 'sedes' %}" class="btn btn-primary">Contáctanos</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
